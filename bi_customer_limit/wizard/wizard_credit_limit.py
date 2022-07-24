@@ -53,9 +53,11 @@ class wizard_credit_limit(models.TransientModel):
         
         for partner in partner_id:
             if partner:
-                template_id = self.env['ir.model.data'].get_object_reference(
-                                                    'bi_customer_limit',
-                                                    'email_template_edi_credit_limit')[1]
+                # template_id = self.env['ir.model.data'].get_object_reference(
+                #                                     'bi_customer_limit',
+                #                                     'email_template_edi_credit_limit')[1]
+                template_id = self.env['ir.model.data']._xmlid_lookup('bi_customer_limit.email_template_edi_credit_limit')[2]
+
                 email_template_obj = self.env['mail.template'].sudo().browse(template_id)
                 if template_id:
                     values = email_template_obj.generate_email(active_ids[0], ['subject', 'body_html', 'email_from', 'email_to', 'partner_to', 'email_cc', 'reply_to', 'scheduled_date'])
