@@ -23,7 +23,7 @@
                             </div>
                             <div style="width:70%;float:right;">
                                 <h3 style="width:100%;">
-                                    Final Invoice <span t-field="o.name"/>
+                                    Final Invoicess <span t-field="o.name"/>
                                 </h3>
                             </div>
 
